@@ -1,0 +1,8 @@
+.alert {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#resultado, #build {
+    margin: 10px;
+}
