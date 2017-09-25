@@ -10,10 +10,11 @@ function ajax(url, callback) {
   xhr.send();
 }
 
-var significados = ''; 
-
 var busca = (palavra)=> ajax(`http://dicionario-aberto.net/search-json/${palavra}`, 
         function (e) {
-            significados = JSON.parse(e.target.response);
-            significados.entry.sense[0].def // caminho com significados
+            var significados = JSON.parse(e.target.response);
+            var def = significados.entry.sense[0].def;
+            document.querySelector('#select').value = palavra;
+            document.querySelector('#definicao').value = '';
+            document.querySelector('#definicao').innerHTML = def;
         });
