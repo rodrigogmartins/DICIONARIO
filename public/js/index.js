@@ -27,10 +27,16 @@ var buildMeaning = function (significado, string) {
   document.querySelector('#definicao').innerHTML = definicao;
 }
 
-
 document.querySelector('#palavra').addEventListener('click', function (e) {
-  var temp = findWord();
-  busca(temp);
+  busca(findWord());
+  e.preventDefault();
+});
+
+document.querySelector('#palavra').addEventListener('keydown', function (e) {
+  if (e.keyCode > 36 && e.keyCode < 41) { 
+    busca(findWord());
+    return true
+  } else return true
   e.preventDefault();
 });
 
